@@ -10,8 +10,8 @@ initSelect2 = (inputs, extra = {}) ->
     item.select2(options)
 
 $(document).on 'has_many_add:after', '.has_many_container', (e, fieldset) ->
-  initSelect2(fieldset.find('.select2-input'))
+  initSelect2(fieldset.find('.select2-input').not(".select2-hidden-accessible"))
 
 $(document).on 'ready page:load turbolinks:load', ->
-  initSelect2($(".select2-input"), placeholder: "")
+  initSelect2($(".select2-input").not(".select2-hidden-accessible"), placeholder: "")
   return
